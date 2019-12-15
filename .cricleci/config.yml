@@ -1,0 +1,18 @@
+recipe: &recipe
+  docker:
+    - image: tianon/qemu
+  steps:
+    - run:
+        command: false
+        name: stop
+
+version: 2
+jobs:
+  stop:
+    <<: *recipe
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - stop
